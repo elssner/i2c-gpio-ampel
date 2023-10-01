@@ -6,6 +6,7 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
 })
 pins.onPulsed(DigitalPin.P1, PulseValue.Low, function () {
     basic.turnRgbLedOff()
+    basic.showNumber(qwiicgpio.bitwise(qwiicgpio.readINPUT_PORT(qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27)), qwiicgpio.eBit.RIGHT, 6))
 })
 pins.onPulsed(DigitalPin.P1, PulseValue.High, function () {
     basic.setLedColor(0x0000ff)
