@@ -4,7 +4,7 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "gpio": "github:calliope-net/gpio#v2.0.0"
+        "gpio": "github:calliope-net/gpio#v2.0.1"
     },
     "files": [
         "main.blocks",
