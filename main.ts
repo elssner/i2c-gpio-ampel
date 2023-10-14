@@ -21,6 +21,7 @@ input.onButtonEvent(Button.A, ButtonEvent.Hold, function () {
     qwiicgpio.writeOUTPUT_PORT(qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27), 0)
 })
 basic.forever(function () {
+    qwiicgpio.beimStart(qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27), true)
     qwiicgpio.setMode(
     qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27),
     qwiicgpio.eIO.IN,
