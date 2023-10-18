@@ -16,6 +16,19 @@ input.onButtonEvent(Button.A, ButtonEvent.Hold, function () {
 input.onButtonEvent(Button.B, ButtonEvent.Hold, function () {
     basic.showNumber(qwiicgpio.readINPUT_PORT(qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27)))
 })
+basic.showString("I2C-GPIO-AMPEL")
+qwiicgpio.beimStart(qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27))
+qwiicgpio.setMode(
+qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27),
+qwiicgpio.eIO.IN_inverted,
+qwiicgpio.eIO.IN_inverted,
+qwiicgpio.eIO.OUT,
+qwiicgpio.eIO.OUT,
+qwiicgpio.eIO.OUT,
+qwiicgpio.eIO.OUT,
+qwiicgpio.eIO.OUT,
+qwiicgpio.eIO.OUT
+)
 loops.everyInterval(1000, function () {
     if (qwiicgpio.readINPUT_PORT(qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27)) == 64) {
         basic.setLedColor(0x0000ff)
@@ -25,18 +38,4 @@ loops.everyInterval(1000, function () {
         }
         basic.turnRgbLedOff()
     }
-})
-basic.forever(function () {
-    qwiicgpio.beimStart(qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27))
-    qwiicgpio.setMode(
-    qwiicgpio.qwiicgpio_eADDR(qwiicgpio.eADDR.GPIO_x27),
-    qwiicgpio.eIO.IN_inverted,
-    qwiicgpio.eIO.IN_inverted,
-    qwiicgpio.eIO.OUT,
-    qwiicgpio.eIO.OUT,
-    qwiicgpio.eIO.OUT,
-    qwiicgpio.eIO.OUT,
-    qwiicgpio.eIO.OUT,
-    qwiicgpio.eIO.OUT
-    )
 })
